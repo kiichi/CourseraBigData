@@ -50,3 +50,26 @@ select species, avg(sepal_width) ave_sw from iris group by species;
 
 !q
 ```
+
+
+
+## Hbase
+
+(still not working - connection refused error)
+
+```
+hbase shell
+```
+
+
+```
+create 'iris', {NAME=>'id'},{NAME=>'sepal_width'},{NAME=>'sepal_height'},{NAME=>'petal_width'},{NAME=>'petal_height'},{NAME=>'species'}
+
+```
+
+Put value in row1 species column
+```
+put 'iris','r1','species','setosa'
+scan 'iris'
+```
+
