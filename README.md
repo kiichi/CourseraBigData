@@ -28,3 +28,25 @@ Go back to hdfs then check
 ```
 hdfs dfs -ls /user/cloudera/sepal
 ```
+
+
+## Hive
+
+Use beeline to connect Hive
+
+```
+beeline -u jdbc:hive2://
+```
+
+Load data from csv and run some analysis
+
+```
+CREATE TABLE iris (id STRING,sepal_width FLOAT,sepal_height FLOAT,petal_width FLOAT,petal_height FLOAT,species STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE;
+
+LOAD DATA INPATH '/user/cloudera/iris.csv' OVERWRITE INTO TABLE iris;
+
+
+select species, avg(sepal_width) ave_sw from iris group by species;
+
+!q
+```
