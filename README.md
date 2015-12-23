@@ -71,5 +71,7 @@ Put value in row1 species column
 ```
 put 'iris','r1','species','setosa'
 scan 'iris'
+scan 'iris',{COLUMNS=>'species'}
 ```
+
 
