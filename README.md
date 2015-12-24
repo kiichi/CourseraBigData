@@ -11,6 +11,14 @@ put some file to parse out
 [cloudera@quickstart CourseraBigData]$ hdfs dfs -put ~/Downloads/iris.csv /user/cloudera
 [cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/coursera
 ```
+
+Check File Stats (e.g. # of Blocks) or check the entire  DataNode Status
+```
+hdfs fsck /user/cloudera/iris.csv
+hdfs dfsadmin -report
+```
+
+
 ## Pig
 
 Start Pig Shell, and import csv data using script. In this example, I am extracting only sepal and species columns.
