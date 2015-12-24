@@ -91,7 +91,12 @@ javac MyHadoopIOTest.java
 jar cvf MyHadoopIOTest.jar MyHadoopIOTest.class
 /usr/bin/hadoop jar MyHadoopIOTest.jar MyHadoopIOTest
 ```
-See MyHadoopIOTest.java for example.
+See MyHadoopIOTest.java for example. The Java program needs to import a few packages
+
+```
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.fs.*;
+```
 
 ## References
 
