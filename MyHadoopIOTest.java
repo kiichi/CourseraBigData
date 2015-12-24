@@ -2,10 +2,10 @@
 // Environment:
 // 	Cloudera Quickstart VM
 //
-// How to compile:
+// How to compile and Run:
 //	export CLASSPATH=$CLASSPATH:.:/usr/lib/crunch/lib/hadoop-common.jar:/usr/lib/crunch/lib/hadoop-annotations.jar
 // 	javac MyHadoopIOTest.java 
-// 	jar cvf MyHadoopIOTest.jar MyHadoopIOTest.cl
+// 	jar cvf MyHadoopIOTest.jar MyHadoopIOTest.class
 //	/usr/bin/hadoop jar MyHadoopIOTest.jar MyHadoopIOTest
 //
 // Reference:
