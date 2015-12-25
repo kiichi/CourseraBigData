@@ -60,7 +60,7 @@ select species, avg(sepal_width) ave_sw from iris group by species;
 
 
 
-## Hbase
+## HBase
 
 (still not working - connection refused error)
 
