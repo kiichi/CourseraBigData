@@ -98,8 +98,26 @@ import org.apache.hadoop.conf.*;
 import org.apache.hadoop.fs.*;
 ```
 
+## Rest API
+
+Sample URL GET File Status
+
+```
+http://quickstart.cloudera:14000/webhdfs/v1/user/cloudera?user.name=cloudera&op=GETFILESTATUS
+```
+
+also in curl
+
+curl -i "http://quickstart.cloudera:14000/webhdfs/v1/user/cloudera?user.name=cloudera&op=GETFILESTATUS"
+
+
+
 ## References
 
+Web API Reference
+https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html
+
+Zeppelin
 https://zeppelin.incubator.apache.org/
 
 
