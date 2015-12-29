@@ -5,10 +5,10 @@
 put some file to parse out
 
 ```
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/coursera
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -mkdir /user/coursera
+[cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/cloudera
+[cloudera@quickstart CourseraBigData]$ hdfs dfs -mkdir /user/cloudera
 [cloudera@quickstart CourseraBigData]$ hdfs dfs -put ~/Downloads/iris.csv /user/cloudera
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/coursera
+[cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/cloudera
 ```
 
 Check File Stats (e.g. # of Blocks) or check the entire  DataNode Status
