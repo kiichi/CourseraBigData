@@ -111,6 +111,11 @@ also in curl
 curl -i "http://quickstart.cloudera:14000/webhdfs/v1/user/cloudera?user.name=cloudera&op=GETFILESTATUS"
 
 
+## Cloudera Manager
+
+```
+sudo /home/cloudera/cloudera-manager --express --force
+```
 
 ## References
 
