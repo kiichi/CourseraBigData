@@ -1,5 +1,13 @@
 # CourseraBigData
 
+## Basic Operations
+
+start stop datanode or tasktracker
+```
+/usr/lib/hadoop/sbin/hadoop-daemon.sh tasktracker start
+/usr/lib/hadoop/sbin/hadoop-daemon.sh datanode start
+```
+
 ## HDFS
 
 put some file to parse out
