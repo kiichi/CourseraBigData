@@ -117,6 +117,15 @@ curl -i "http://quickstart.cloudera:14000/webhdfs/v1/user/cloudera?user.name=clo
 sudo /home/cloudera/cloudera-manager --express --force
 ```
 
+## Map/Reduce in Python
+
+Test python program
+```
+cat input.txt | python wordcount_mapper.py | sort > mapped.txt
+cat mapped.txt | python wordcount_reducer.py
+```
+
+
 ## References
 
 Web API Reference
