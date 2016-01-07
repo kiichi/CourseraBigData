@@ -134,11 +134,7 @@ sudo /home/cloudera/cloudera-manager --express --force
 
 ## Map/Reduce in Python
 
-Test python program
-```
-cat input.txt | python wordcount_mapper.py | sort > mapped.txt
-cat mapped.txt | python wordcount_reducer.py
-```
+See map_reduce_python folder
 
 
 ## References
