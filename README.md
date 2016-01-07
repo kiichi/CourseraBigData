@@ -17,6 +17,11 @@ hdfs fsck /user/cloudera/iris.csv
 hdfs dfsadmin -report
 ```
 
+Misc - if you get an error about safe mode, turn it off
+```
+sudo -u hdfs hdfs dfsadmin -safemode leave
+```
+
 
 ## Pig
 
