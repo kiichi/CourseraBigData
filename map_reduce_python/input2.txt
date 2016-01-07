@@ -1,0 +1,36 @@
+Azure HDInsight[45] is a service that deploys Hadoop on Microsoft Azure.
+HDInsight uses a Windows-based Hadoop distribution that was jointly developed
+with Hortonworks and allows programming extensions with .NET (in addition to
+Java). HDInsight also supports creation of Hadoop clusters using Linux with
+Ubuntu.[45] By deploying HDInsight in the cloud, organizations can spin up the
+number of nodes they want and only get charged for the compute and storage
+that is used.[45] Hortonworks implementations can also move data from the
+on-premises datacenter to the cloud for backup, development/test, and bursting
+scenarios.[45] It is also possible to run Cloudera or Hortonworks Hadoop
+clusters on Azure Virtual Machines.
+Hadoop on Amazon EC2/S3 services
+
+It is possible to run Hadoop on Amazon Elastic Compute Cloud (EC2) and Amazon
+Simple Storage Service (S3).[46] As an example, The New York Times used 100
+Amazon EC2 instances and a Hadoop application to process 4 TB of raw image
+TIFF data (stored in S3) into 11 million finished PDFs in the space of 24
+hours at a computation cost of about $240 (not including bandwidth).[47]
+
+There is support for the S3 object store in the Apache Hadoop releases, though
+this is below what one expects from a traditional POSIX filesystem.
+Specifically, operations such as rename() and delete() on directories are not
+atomic, and can take time proportional to the number of entries and the amount
+of data in them.
+Amazon Elastic MapReduce
+
+Elastic MapReduce (EMR)[48] was introduced by Amazon.com in April 2009.
+Provisioning of the Hadoop cluster, running and terminating jobs, and handling
+data transfer between EC2(VM) and S3(Object Storage) are automated by Elastic
+MapReduce. Apache Hive, which is built on top of Hadoop for providing data
+warehouse services, is also offered in Elastic MapReduce.[49]
+
+Support for using Spot Instances[50] was later added in August 2011.[51]
+Elastic MapReduce is fault tolerant for slave failures,[52] and it is
+recommended to only run the Task Instance Group on spot instances to take
+advantage of the lower cost while maintaining availability.[53]
+
