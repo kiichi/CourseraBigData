@@ -8,6 +8,8 @@ start stop datanode or tasktracker
 /usr/lib/hadoop/sbin/hadoop-daemon.sh datanode start
 ```
 
+Note: most of services should be able to start via Cloudera Manager web interface localhost:7180
+
 ## HDFS
 
 put some file to parse out
