@@ -134,7 +134,7 @@ sudo /home/cloudera/cloudera-manager --express --force
 
 ## Map/Reduce in Python
 
-See map_reduce_python folder
+See map_reduce_python and map_reduce_join_python folder
 
 
 ## References
