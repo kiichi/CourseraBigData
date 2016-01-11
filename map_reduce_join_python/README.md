@@ -13,11 +13,9 @@ in multiple nodes.
 
 These steps are very similar to what I described in ./map_reduce_python folder.
 
-## About Files
-
-
-
 ## Process
+
+0. Files have been generated make_... py program
 
 1. Change permission add +x on .py files
 
