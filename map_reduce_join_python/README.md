@@ -9,13 +9,11 @@ Note:
 
 Hadoop stream can take multiple files. If you specify a mapper program, it should detect type of file in each lines and process accordingly.
 For mapper output & reducer input, use tab delmited to pass it on. When you write reducer, be careful to code that execution might happen 
-in multiple nodes.
+in multiple nodes. The result might be ended up with different from the test one.
 
 These steps are very similar to what I described in ./map_reduce_python folder.
 
 ## Process
-
-0. Files have been generated make_... py program
 
 1. Change permission add +x on .py files
 
@@ -56,3 +54,6 @@ hdfs dfs -cat /user/cloudera/output_join2/part-00000
 hdfs dfs -getmerge /user/cloudera/output_join2 output_join2.txt
 diff output_join2.txt output_join2_test.txt
 ```
+
+Appendix
+Files have been generated make_... py program
