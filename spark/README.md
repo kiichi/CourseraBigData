@@ -27,4 +27,34 @@ if still have problem, assign enviornment variable
 export PYSPARK_SUBMIT_ARGS="--master local[2] pyspark-shell"
 ```
 
-##
+## Example
+
+simple_join.py - split lines into key-value pairs, and count number of words. 
+
+
+# Programming Notes
+
+Spark put everything in memory, and it create partitions. A partition is a unit of dataset should be handled locally in one node.
+
+## Local operation (aka Narrow Transform)
+
+map()
+
+## Network operation (aka Wider Transform)
+
+
+
+
+## Useful Functions
+
+glom()
+
+
+
+
+
+
+
+
+
+
