@@ -96,6 +96,10 @@ scan 'iris'
 scan 'iris',{COLUMNS=>'species'}
 ```
 
+## Spark
+
+See spark/ folder
+
 ## Java API
 
 
