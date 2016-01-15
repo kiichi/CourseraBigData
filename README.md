@@ -15,10 +15,11 @@ Note: most of services should be able to start via Cloudera Manager web interfac
 put some file to parse out
 
 ```
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/cloudera
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -mkdir /user/cloudera
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -put ~/Downloads/iris.csv /user/cloudera
-[cloudera@quickstart CourseraBigData]$ hdfs dfs -ls /user/cloudera
+hdfs dfs -ls /user/cloudera
+hdfs dfs -mkdir /user/cloudera
+hdfs dfs -put ~/Downloads/iris.csv /user/cloudera
+hdfs dfs -ls /user/cloudera
+hdfs dfs -rm -r /user/cloudera/output_*
 ```
 
 Check File Stats (e.g. # of Blocks) or check the entire  DataNode Status
