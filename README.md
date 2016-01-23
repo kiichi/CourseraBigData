@@ -74,6 +74,13 @@ select species, avg(sepal_width) ave_sw from iris group by species;
 !q
 ```
 
+## Impala
+
+After uploading data files into Metastore, run refresh command
+```
+invalidate metadata;
+show tables;
+```
 
 
 ## HBase
