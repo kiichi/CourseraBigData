@@ -76,11 +76,13 @@ select species, avg(sepal_width) ave_sw from iris group by species;
 
 ## Impala
 
-After uploading data files into Metastore, run refresh command
+After uploading data files into Metastore (Databrowser > Metastore > Create new), run refresh command
 ```
 invalidate metadata;
 show tables;
 ```
+
+Note: when you import, the importer tend to pick tinyint, but becareful. Use int to preserve bigger number.
 
 
 ## HBase
