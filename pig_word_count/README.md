@@ -24,7 +24,8 @@ Map Reduce Results from the example. Curly bracese represents bags, and prompthy
 (episode,{(episode)})
 ```
 
-Quick Reference
+See Quick Reference
+
 https://www.qubole.com/resources/cheatsheet/pig-function-cheat-sheet/
 
 
