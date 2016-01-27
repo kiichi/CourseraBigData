@@ -22,6 +22,12 @@ hdfs dfs -ls /user/cloudera
 hdfs dfs -rm -r /user/cloudera/output_*
 ```
 
+Another copy method
+
+```
+hdfs dfs -copyFromLocal /home/cloudera/testfile* /user/cloudera/myinput
+```
+
 Check File Stats (e.g. # of Blocks) or check the entire  DataNode Status
 ```
 hdfs fsck /user/cloudera/iris.csv
