@@ -156,6 +156,29 @@ sudo /home/cloudera/cloudera-manager --express --force
 
 See map_reduce_python and map_reduce_join_python folder
 
+## Splunk
+install Enterprise version
+/Applications/Splunk/bin/splunk start
+
+sample data
+docs.splunk.com/images/Tutorial/tutorialdata.zip
+
+upload a file. Note select segment 1 for this tutorial data when you upload.
+
+search filter example
+```
+host="xxki.home" buttercup* (error* OR fail*)
+```
+
+use pipe (|) and command to aggregate for the final statistics. For example,
+
+"Find all purchased product and Order by count per categoryId"
+
+```
+source="*tutorialdata_dec2015.zip:*" action=purchase status=200 | top categoryId
+```
+
+This will show you the purchase count per category.
 
 ## References
 
