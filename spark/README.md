@@ -69,7 +69,26 @@ int_rdd.glom().collect()
 
 [[0, 1, 2], [3, 4, 5], [6, 7, 8, 9]]
 
+## Filtering
+
+(local operation)
+
+```
+def starts_with_a(word):
+  return word.lower().startswith("a")
+words_RDD.filter(starts_with_a).collect()
+```
+
 ## Mapping
+
+(local operation)
+
+```
+def lower(line):
+  return line.lower()
+lower_text_RDD = text_RDD.map(lower)
+```
+
 
 ```
 def split_words(line):
@@ -84,6 +103,17 @@ pairs_RDD.collect()
 
 ## Grouping
 
+These operations might go over network (shuffle).
+
+```
+pairs_RDD.groupByKey().collect()
+```
+
+```
+for k,v in pairs_RDD.groupByKey().collect():
+  print "Key:", k, ",Values:", list(v
+```
+
 ```
 def sum_counts(a, b):
   return a + b
@@ -94,16 +124,13 @@ wordcounts_RDD.collect()
 
 
 
-## Local operation (aka Narrow Transform)
+## Optimizing
 
-map()
+Use coalesce() function to re-partition RDD
 
-## Network operation (aka Wider Transform)
-
-
-
-
-
+```
+sc.parallelize(range(10), 4).coalesce(2).glom().collect()
+```
 
 
 
