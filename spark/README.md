@@ -31,10 +31,36 @@ export PYSPARK_SUBMIT_ARGS="--master local[2] pyspark-shell"
 
 simple_join.py - split lines into key-value pairs, and count number of words. 
 
-
 # Programming Notes
 
 Spark put everything in memory, and it create partitions. A partition is a unit of dataset should be handled locally in one node.
+RDD - Resilient Distributed Dataset. Immutable object that takes care distributed and paralell processing.
+
+
+# Basics
+
+```
+sc.version
+```
+
+Create some parallel rdd
+```
+int_rdd == sc.parallelize(range(10), 3)
+int_rdd.collect()
+```
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+If you need to see the partition, use glom function
+
+```
+int_rdd.glom().collect()
+```
+
+[[0, 1, 2], [3, 4, 5], [6, 7, 8, 9]]
+
+
+
 
 ## Local operation (aka Narrow Transform)
 
@@ -42,12 +68,6 @@ map()
 
 ## Network operation (aka Wider Transform)
 
-
-
-
-## Useful Functions
-
-glom()
 
 
 
