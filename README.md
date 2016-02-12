@@ -58,6 +58,12 @@ Go back to hdfs then check
 hdfs dfs -ls /user/cloudera/sepal
 ```
 
+Start Interactive Shell, grunt
+
+```
+pig -x local
+```
+
 
 ## Hive
 
