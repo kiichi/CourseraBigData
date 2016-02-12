@@ -31,17 +31,27 @@ export PYSPARK_SUBMIT_ARGS="--master local[2] pyspark-shell"
 
 simple_join.py - split lines into key-value pairs, and count number of words. 
 
-# Programming Notes
+## Programming Notes
 
 Spark put everything in memory, and it create partitions. A partition is a unit of dataset should be handled locally in one node.
 RDD - Resilient Distributed Dataset. Immutable object that takes care distributed and paralell processing.
 
 
-# Basics
+## Basics
 
 ```
 sc.version
 ```
+
+## I/O
+
+```
+f = sc.textFile("file:///home/cloudera/testfile1")
+f.collect()
+f.take(1)
+```
+
+# Parallelize and RDD
 
 Create some parallel rdd
 ```
@@ -59,6 +69,28 @@ int_rdd.glom().collect()
 
 [[0, 1, 2], [3, 4, 5], [6, 7, 8, 9]]
 
+## Mapping
+
+```
+def split_words(line):
+  return line.split()
+
+def create_pair(word):
+  return (word, 1)
+
+pairs_RDD=text_RDD.flatMap(split_words).map(create_pair)
+pairs_RDD.collect()
+```
+
+## Grouping
+
+```
+def sum_counts(a, b):
+  return a + b
+  
+wordcounts_RDD = pairs_RDD.reduceByKey(sum_counts)
+wordcounts_RDD.collect()
+```
 
 
 
