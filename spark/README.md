@@ -122,9 +122,36 @@ wordcounts_RDD = pairs_RDD.reduceByKey(sum_counts)
 wordcounts_RDD.collect()
 ```
 
+## Broadcast
+
+Usefult to send config params
+
+```
+config = sc.broadcast({"order":3, "filter":True})
+config.value
+```
+
+## Accumulator
+
+Global variable
+
+```
+accum = sc.accumulator(0)
+def test_accum(x):
+  accum.add(x)
+sc.parallelize([1, 2, 3, 4]).foreach(test_accum)
+accum.value
+```
 
 
 ## Optimizing
+
+Use cache() to remember after some operations
+
+```
+myrdd = ....
+myrdd.cache()
+```
 
 Use coalesce() function to re-partition RDD
 
