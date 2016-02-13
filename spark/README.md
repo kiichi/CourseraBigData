@@ -178,6 +178,19 @@ sc.parallelize(range(10), 4).coalesce(2).glom().collect()
 
 Dataframe is faster, and less line of code. Using the same mechanism, therefore, it's sort of Optimized RDD
 
+### Setup
+
+```
+sudo cp /etc/hive/conf.dist/hive-site.xml /usr/lib/spark/conf/
+```
+
+Try
+
+```
+test = sqlCtx.createDataFrame([("somekey", 1)])
+test.show()
+```
+
 ### Create Dataset
 
 Prepare Dataset like this below
@@ -347,6 +360,11 @@ yelp_df.filter(yelp_df["useful"] >= 1).count()
 yelp_df.filter("useful >= 1").count()
 ```
 
+Use AND for multiple where clauses
+```
+yelp_df.filter("review_count >= 10 AND open='True' ").count()
+```
+
 Selecting and Max
 
 ```
@@ -357,6 +375,7 @@ yelp_df.select("useful").agg({"useful":"max"}).collect()
 
 ```
 yelp_df.select("useful").take(5)
+yelp_df.select("useful").show(5)
 ```
 
 Calculated Column
@@ -383,6 +402,14 @@ useful_perc_data = yelp_df.select(
 	(yelp_df.useful/28*100).cast("int").alias("useful_perc")
 ).orderBy(desc("useful_perc"))
 ```
+
+Group by State, descending order by the count
+
+```
+yelp_df.filter("review_count >= 10").groupBy("state").count().orderBy(desc('count')).show()
+```
+
+
 
 
 ### Join
