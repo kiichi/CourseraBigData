@@ -6,6 +6,8 @@
 sudo easy_install ipython==1.2.1
 ```
 
+you should also install package like numpy
+
 ## Start Spark Console
 
 ```
@@ -58,6 +60,25 @@ sc.version
 f = sc.textFile("file:///home/cloudera/testfile1")
 f.collect()
 f.take(1)
+```
+
+## List all RDD
+
+```
+dir()
+```
+
+Look inside rdd (e.g. list all functions)
+``
+dir(name_of_rdd)
+```
+
+## Print
+
+This function just show the class type. To see contents, use .take or .collect
+
+```
+print rdd_name
 ```
 
 ## Parallelize and RDD
@@ -174,11 +195,11 @@ Use coalesce() function to re-partition RDD
 sc.parallelize(range(10), 4).coalesce(2).glom().collect()
 ```
 
-## DataFrame and SQL
+# DataFrame and SQL
 
 Dataframe is faster, and less line of code. Using the same mechanism, therefore, it's sort of Optimized RDD
 
-### Setup
+## Setup
 
 ```
 sudo cp /etc/hive/conf.dist/hive-site.xml /usr/lib/spark/conf/
@@ -191,7 +212,7 @@ test = sqlCtx.createDataFrame([("somekey", 1)])
 test.show()
 ```
 
-### Create Dataset
+## Create Dataset
 
 Prepare Dataset like this below
 
@@ -203,7 +224,7 @@ students = sc.parallelize([
 ])
 ```
 
-### Without Dataframe, Average:
+## Without Dataframe, Average:
 
 ```
 def extract_grade(row):
@@ -212,7 +233,7 @@ def extract_grade(row):
 students.map(extract_grade).mean().collect()
 ```
 
-### Without Dataframe, Group by Key and find Max of each Group:
+## Without Dataframe, Group by Key and find Max of each Group:
 
 ```
 def extract_degree_grade(row):
@@ -222,7 +243,7 @@ degree_grade_RDD = students.map(extract_degree_grade)
 degree_grade_RDD.reduceByKey(max).collect()
 ```
 
-### Setup Dataframe
+## Setup Dataframe
 
 ```
 students_df = sqlCtx.createDataFrame(students, ["id", "name", "grade", "degree"])
@@ -250,7 +271,7 @@ root
  |-- degree: string (nullable = true)
 ```
 
-### With Dataframe, Average:
+## With Dataframe, Average:
 
 Use agg() - aggregate function and pass the column and function name. 
 
@@ -258,7 +279,7 @@ Use agg() - aggregate function and pass the column and function name.
 students_df.agg({"grade": "mean"}).collect()
 ```
 
-### With Dataframe, Group by Key and find Max of each Group:
+## With Dataframe, Group by Key and find Max of each Group:
 
 ```
 students_df.groupBy("degree").max("grade").collect()
@@ -266,7 +287,7 @@ students_df.groupBy("degree").max("grade").collect()
 
 Simple!
 
-### show() -  Pretty Print Function
+## show() -  Pretty Print Function
 
 ```
 students_df.groupBy("degree").max("grade").show()
@@ -283,7 +304,7 @@ Output:
 +----------------+-----+---+-----+
 ```
 
-### JSON
+## JSON
 
 
 Write JSON
@@ -306,7 +327,7 @@ Read JSON
 sqlCtx.jsonFile("file:///home/cloudera/students.json").show()
 ```
 
-### CSV
+## CSV
 
 You need to load csv plugin. Go to http://spark-packages.org/package/databricks/spark-csv
 
@@ -334,7 +355,7 @@ yelp_df = sqlCtx.load(
 yelp_df.printSchema()
 ```
 
-### Accessing Column
+## Accessing Column
 
 ```
 yelp_df["useful"]
@@ -350,7 +371,7 @@ Display Columns
 yelp_df.columns
 ```
 
-### Select Statement / Filtering / Alias / Order by
+## Select Statement / Filtering / Alias / Order by
 
 There are a few ways to describe the filter 
 
@@ -412,7 +433,7 @@ yelp_df.filter("review_count >= 10").groupBy("state").count().orderBy(desc('coun
 
 
 
-### Join
+## Join
 
 Inner Join and select Cols ... Note it's using cache after Join
 
@@ -422,7 +443,7 @@ useful_perc_data.join(
 	yelp_df.id == useful_perc_data.uid,
 	"inner").cache.().select(useful_perc_data.uid, "useful_perc", "review_count").show()
 ```
-### Average, Min, and Max
+## Average, Min, and Max
 
 ```
 logs_df.groupBy("code").avg("bytes").show()
@@ -439,7 +460,7 @@ logs_df.groupBy("code").agg(
 ```
 
 
-### Setting Hadoop Config (e.g. delimiter)
+## Setting Hadoop Config (e.g. delimiter)
 
 e.g. Allow windows new line \r\n to read data
 
@@ -447,7 +468,13 @@ e.g. Allow windows new line \r\n to read data
 sc._jsc.hadoopConfiguration().set('textinputforma t.record.delimiter', '\r\n')
 ```
 
+# Machine Learning
 
+## Loading External Scripts
+
+```
+exec(open('doweathclass.py').read())
+```
 
 
 
