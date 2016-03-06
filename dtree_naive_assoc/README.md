@@ -48,3 +48,9 @@ the algorithm should look for another customer who purchased same combination of
 - Confidence = Accuracy: supp(x,y) / supp(x)
 - Lift - enhance modeling : supp(x,y) / (supp(x) * supp(y))
 
+# References
+
+See Examples in knime. 
+
+Assoc rules
+https://www.knime.org/blog/market-basket-analysis-and-recommendation-engines
