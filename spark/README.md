@@ -470,13 +470,32 @@ sc._jsc.hadoopConfiguration().set('textinputforma t.record.delimiter', '\r\n')
 
 # Machine Learning
 
+
 ## Loading External Scripts
 
 ```
 exec(open('doweathclass.py').read())
 ```
 
+## Useful Functions for Stat
 
+```
+my_data.stats()
+my_results.mean()
+```
 
+## K-Means
+
+```
+from pyspark.mllib.clustering import KMeans
+my_kmmdel = KMeans.train(my_data,k=3,
+                maxIterations=20,runs=1,
+                initializationMode='k-means||',seed=10L)
+my_kmmodel.centers
+my_kmmodel.predict(point)
+
+```
+
+See clustering_kmeans/dokmeans.py for example.
 
 
