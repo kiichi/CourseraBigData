@@ -12,6 +12,10 @@ If graph is too large, right click on Chrome > Inspect > Change the svg's attrib
 <g transform="scale(0.3)"> 
 ```
 
+## About Cypher
+
+http:## neo4j.com/developer/cypher-query-language/#_about_cypher
+
 # Create
 
 ## Creating Nodes and Edges
@@ -54,6 +58,69 @@ where not ((m)-->())
 return m
 ```
 
+## Finding root nodes
+
+```
+match (m)-[r:TO]->(n:MyNode)
+where not (()-->(m))
+return m
+
+## Finding triangles
+
+match (a)-[:TO]->(b)-[:TO]->(c)-[:TO]->(a)
+return distinct a, b, c
+
+##  Finding 2nd neighbors of D: - WHERE Statement and Range Matching
+
+match (a)-[:TO*..2]-(b)
+where a.Name='D'
+return distinct a, b
+
+## Finding the types of a node
+
+```
+match (n)
+where n.Name = 'Afghanistan'
+return labels(n)
+```
+
+## Finding the label of an edge: - DISTINCT Statement  
+
+```
+match (n {Name: 'Afghanistan'})<-[r]-()
+return distinct type(r)
+```
+
+## Finding all properties of a node: - LIMIT
+
+```
+match (n:Actor)
+return * limit 20
+```
+
+## Finding loops
+
+```
+match (n)-[r]->(n)
+return n, r limit 10
+```
+
+## Finding multigraphs - NOT Statement
+
+```
+match (n)-[r1]->(m), (n)-[r2]-(m)
+where r1 <> r2
+return n, r1, r2, m limit 10
+```
+
+##  Finding the induced subgraph given a set of nodes - IN Statement
+
+```
+match (n)-[r:TO]-(m)
+where n.Name in ['A', 'B', 'C', 'D', 'E'] and m.Name in ['A', 'B', 'C', 'D', 'E']
+return n, r, m
+```
+
 
 # Delete
 
@@ -94,7 +161,7 @@ match (n)-[r:MyRelation]-() delete r
 
 ## Import CSV
 
-Sample data format of test.csv is like this below:
+Sample data format of test.csv is like this below
 ```
 Source,Target,distance
 A,C,3
@@ -104,8 +171,8 @@ B,D,5
 
 Load like this below (use either windows or mac style)
 ```
-LOAD CSV WITH HEADERS FROM "file:///C:/coursera/data/test.csv" AS line
-LOAD CSV WITH HEADERS FROM "file:///Users/kiichi/coursera/data/test.csv" AS line
+LOAD CSV WITH HEADERS FROM "file:## /C:/coursera/data/test.csv" AS line
+LOAD CSV WITH HEADERS FROM "file:## /Users/kiichi/coursera/data/test.csv" AS line
 MERGE (n:MyNode {Name:line.Source})
 MERGE (m:MyNode {Name:line.Target})
 MERGE (n) -[:TO {dist:line.distance}]-> (m)
@@ -121,7 +188,7 @@ match (n:MyNode)-[r]-(m) return n, r, m
 
 
 ```
-LOAD CSV WITH HEADERS FROM "file:///Users/kiichi/Desktop/neo4jdata/terrorist_data_subset.csv" AS row
+LOAD CSV WITH HEADERS FROM "file:## /Users/kiichi/Desktop/neo4jdata/terrorist_data_subset.csv" AS row
 MERGE (c:Country {Name:row.Country})
 MERGE (a:Actor {Name: row.ActorName, Aliases: row.Aliases, Type: row.ActorType})
 MERGE (o:Organization {Name: row.AffiliationTo})
