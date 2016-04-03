@@ -1,4 +1,4 @@
-!! Creating Nodes and Edges
+## Creating Nodes and Edges
 
 ```
 create (N1:ToyNode {name: 'Kiichi'}) - [:ToyRelation {relationship: 'knows'}] -> (N2:ToyNode {name: 'Gavi'}),
@@ -9,47 +9,47 @@ create (N1:ToyNode {name: 'Kiichi'}) - [:ToyRelation {relationship: 'knows'}] ->
 ;
 ```
 
-!! Select Everything
+## Select Everything
 
 ```
 match (n:ToyNode)-[r]-(m) return n, r, m
 ```
 
-!! Select One
+## Select One
 
 ```
 match (n:ToyNode {name:'Justin'}) return n
 ```
 
 
-!! Delete all nodes and edges
+## Delete all nodes and edges
 
 ```
 match (n)-[r]-() delete n, r
 ```
 
 
-!! Delete all nodes which have no edges
+## Delete all nodes which have no edges
 
 ```
 match (n) delete n
 ```
 
 
-!! Delete only ToyNode nodes which have no edges
+## Delete only ToyNode nodes which have no edges
 
 ```
 match (n:ToyNode) delete n
 ```
 
-!! Delete all edges
+## Delete all edges
 
 ```
 match (n)-[r]-() delete r
 ```
 
 
-!! Delete only ToyRelation edges
+## Delete only ToyRelation edges
 
 ```
 match (n)-[r:ToyRelation]-() delete r
