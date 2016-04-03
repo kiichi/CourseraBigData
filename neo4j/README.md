@@ -2,10 +2,10 @@
 
 ```
 create (N1:ToyNode {name: 'Kiichi'}) - [:ToyRelation {relationship: 'knows'}] -> (N2:ToyNode {name: 'Gavi'}),
-(N2) - [:ToyRelation {relationship: 'co-worker'}] -> (N3:ToyNode {name: 'Justin', job: 'developer'}),
-(N2) - [:ToyRelation {relationship: 'co-worker'}] -> (N4:ToyNode {name: 'James', job: 'sr developer'}),
+(N1) - [:ToyRelation {relationship: 'co-worker'}] -> (N3:ToyNode {name: 'Justin', job: 'developer'}),
+(N1) - [:ToyRelation {relationship: 'co-worker'}] -> (N4:ToyNode {name: 'James', job: 'sr developer'}),
 (N1) - [:ToyRelation {relationship: 'teach'}] -> (N5:ToyNode {name: 'Lauren', job: 'gamer'}),
-(N1) - [:ToyRelation {relationship: 'friend'}] -> (N5)
+(N1) - [:ToyRelation {relationship: 'friend'}] -> (N2)
 ;
 ```
 
