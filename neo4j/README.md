@@ -16,7 +16,7 @@ If graph is too large, right click on Chrome > Inspect > Change the svg's attrib
 
 ## Creating Nodes and Edges
 
-```cypher
+```sql
 create (N1:MyNode {name: 'Kiichi'}) - [:MyRelation {relationship: 'knows'}] -> (N2:MyNode {name: 'Gavi'}),
 (N1) - [:MyRelation {relationship: 'co-worker'}] -> (N3:MyNode {name: 'Justin', job: 'developer'}),
 (N1) - [:MyRelation {relationship: 'co-worker'}] -> (N4:MyNode {name: 'James', job: 'sr developer'}),
