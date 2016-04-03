@@ -1,3 +1,6 @@
+
+Examples from Coursera
+
 # Tips
 
 ## Key Binding
@@ -64,17 +67,22 @@ return m
 match (m)-[r:TO]->(n:MyNode)
 where not (()-->(m))
 return m
+```
 
 ## Finding triangles
 
+```
 match (a)-[:TO]->(b)-[:TO]->(c)-[:TO]->(a)
 return distinct a, b, c
+```
 
 ##  Finding 2nd neighbors of D: - WHERE Statement and Range Matching
 
+```
 match (a)-[:TO*..2]-(b)
 where a.Name='D'
 return distinct a, b
+```
 
 ## Finding the types of a node
 
@@ -124,6 +132,10 @@ return n, r, m
 # Advanced Select - Path Analysis
 
 See path.md file
+
+# Advanced Select - Connectivity Analysis
+
+See conn.md file
 
 # Delete
 
