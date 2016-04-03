@@ -1,8 +1,22 @@
+# Tips
+
+## Key Binding
+
+* Up / Down arrow - toggle history of commands
+* Double click the query and it pops in
+* Ctrl + Enter - Execute
+
+## Zoom Out
+If graph is too large, right click on Chrome > Inspect > Change the svg's attribute , lol
+```
+<g transform="scale(0.3)"> 
+```
+
 # Create
 
 ## Creating Nodes and Edges
 
-```
+```cypher
 create (N1:MyNode {name: 'Kiichi'}) - [:MyRelation {relationship: 'knows'}] -> (N2:MyNode {name: 'Gavi'}),
 (N1) - [:MyRelation {relationship: 'co-worker'}] -> (N3:MyNode {name: 'Justin', job: 'developer'}),
 (N1) - [:MyRelation {relationship: 'co-worker'}] -> (N4:MyNode {name: 'James', job: 'sr developer'}),
@@ -24,10 +38,20 @@ match (n:MyNode)-[r]-(m) return n, r, m
 match (n:MyNode {name:'Justin'}) return n
 ```
 
-Tips: If graph is too large, right click on Chrome > Inspect > Change the svg's attribute , lol
+## Count
+
+Count Nodes and Edges
+```
+match (n:MyNode) return count(n)
+match (n:MyNode)-[r]->() return (r)
+```
+
+## Find Leaf Nodes
 
 ```
-<g transform="scale(0.3)"> 
+match (n:MyNode)-[r:TO]->(m)
+where not ((m)-->())
+return m
 ```
 
 
