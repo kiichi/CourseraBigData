@@ -28,7 +28,7 @@ create (N1:MyNode {name: 'Kiichi'}) - [:MyRelation {relationship: 'knows'}] -> (
 (N1) - [:MyRelation {relationship: 'friend'}] -> (N2)
 ;
 ```
-# Select
+# Basic Select
 
 ## Select Everything
 
@@ -121,6 +121,9 @@ where n.Name in ['A', 'B', 'C', 'D', 'E'] and m.Name in ['A', 'B', 'C', 'D', 'E'
 return n, r, m
 ```
 
+# Advanced Select - Path Analysis
+
+See path.md file
 
 # Delete
 
