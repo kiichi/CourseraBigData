@@ -6,6 +6,7 @@ Examples from Coursera
 ## Key Binding
 
 * Up / Down arrow - toggle history of commands
+* Use Ctrl + Up / Down arrow to toggle if the history is multiple lines
 * Double click the query and it pops in
 * Ctrl + Enter - Execute
 
