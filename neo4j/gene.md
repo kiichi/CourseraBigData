@@ -91,12 +91,23 @@ RETURN EXTRACT(n IN NODES(p)| n.Name) AS Paths,length(p)
 ```
 
 
+find highest outdegree nodes
+```
+match (n:TrialGene)-[r]->()
+return n.Name as Node, count(r) as Outdegree
+order by Outdegree desc
+union
+match (a:TrialGene)-[r]->(leaf)
+where not((leaf)-->())
+return leaf.Name as Node, 0 as Outdegree
+```
+SNCA	277
+BRCA1	234
 
-
-
-
-
-
-
-
-
+```
+match (n:TrialGene)-[r]-()
+with n as nodes, count(distinct r) as degree
+where degree = 3
+return degree, count(nodes) order by degree asc
+```
+821
