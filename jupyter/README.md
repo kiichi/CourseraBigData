@@ -1,4 +1,4 @@
-# How to run pyspark on jupyter
+# How to run pyspark on jupyter notebook
 
 1. Download and build spark
 
