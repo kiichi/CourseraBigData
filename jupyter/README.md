@@ -1,30 +1,29 @@
 # How to run pyspark on jupyter notebook
 
-1. Download and build spark
+Step 1. Download and build spark
 
 ```
 build/mvn -DskipTests clean package
 ```
 
-2. Change the last line of the launch script 
+Step 2. Change the last line of the launch script 
 
 ```
 vim ./bin/pyspark
 ```
-
-to
+comment out the last line add the command
 
 ```
 jupyter notebook
 ```
 
-Try to imposrt one of python library and run 
+How to verify? Try to import one of python library and run 
 
 ```
 from pyspark.mllib.clustering import KMeans, KMeansModel
 ```
 
-Example slightly modified from  http://spark.apache.org/docs/latest/mllib-clustering.html#k-means
+Also, try this example slightly modified one from  http://spark.apache.org/docs/latest/mllib-clustering.html#k-means
 
 ```
 import pandas as pd
