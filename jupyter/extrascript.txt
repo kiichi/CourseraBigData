@@ -1,0 +1,50 @@
+2
+[array([ 27.39467849,  23.86474501]), array([  39.07608696,  115.26086957])]
+
+3
+[array([ 26.08539945,  16.47933884]), array([  41.        ,  142.10204082]), array([ 34.13740458,  64.29007634])]
+
+4
+[array([ 14.84878049,  12.64878049]), array([ 33.44915254,  69.41525424]), array([ 40.63068182,  23.53409091]), array([  41.09090909,  146.38636364])]
+
+5
+[array([  43.        ,  168.79166667]), array([  38. ,  101.8]), array([ 42.03947368,  19.84868421]), array([ 30.90517241,  54.46551724]), array([ 14.55612245,  12.15306122])]
+
+
+trainingDF = pd.read_csv("./training.csv")
+trainingDF.shape
+
+sqlContext = SQLContext(sc)
+pDF = sqlContext.createDataFrame(trainingDF)
+#totalAdClicks	revenue	accuracy	click_per_hr	avg_level	ttl_hr
+parsedData = pDF.rdd.map(lambda line: array([line[1],line[2],line[3],line[4],line[5],line[6]]))
+my_kmmodel = KMeans.train(parsedData, 3, maxIterations=10, runs=10, initializationMode="random")
+print(my_kmmodel.centers)
+
+
+
+totalAdClicks	revenue	accuracy	click_per_hr	avg_level	ttl_hr
+21.0	13.407821	1.663700	4.518156	436.0
+53.0	10.000000	2.826389	5.389474	80.0
+80.0	12.204724	1.260176	5.440945	375.0
+11.0	10.943032	13.021472	2.918571	254.0
+215.0	13.068182	1.920173	4.637784	414.0
+
+
+[
+array([  44.37209302,   58.34883721,   11.7337892 ,    1.99138353, 4.69236249,  423.82790698]), 
+array([  27.89542484,   35.32679739,   11.39957432,    3.48512431, 5.35885299,  252.69281046]), 
+array([ 13.05625   ,  19.83125   ,  10.95881922,   3.58715502, 5.79436144,  92.45625   ])
+]
+[array([  44.03111111,   56.59555556,   11.68204371,    2.27909156, 4.64199914,  420.00888889]), 
+array([ 12.96815287,  19.4522293 ,  10.96544977,   3.55782595, 5.80047694,  91.00636943]), 
+array([  27.08219178,   36.54109589,   11.44024092,    3.17768498, 5.48449031,  245.12328767])]
+
+
+
+#totalAdClicks	revenue	click_per_hr	ttl_hr
+parsedData = pDF.rdd.map(lambda line: array([line[1],line[2],line[4],line[6]]))
+[array([  25.5 ,   68.75,     inf,  243.  ]), 
+array([  17.7756654 ,   25.20532319,    3.45825769,  144.32319392]), 
+array([  42.46564885,   54.46183206,    2.3683702 ,  403.24045802])]
+
